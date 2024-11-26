@@ -1,0 +1,58 @@
+{
+	"name": "@ws-utils/react",
+	"version": "0.0.0",
+	"license": "MIT",
+	"source": "index.ts",
+	"main": "index.ts",
+	"module": "index.ts",
+	"type": "module",
+	"files": [
+		"index.ts"
+	],
+	"exports": {
+		".": {
+			"import": {
+				"default": "./index.ts"
+			},
+			"require": {
+				"default": "./index.ts"
+			}
+		}
+	},
+	"sideEffects": false,
+	"scripts": {
+		"clean": "rimraf dist",
+		"typecheck": "tsc --noEmit --incremental false"
+	},
+	"peerDependencies": {
+		"@types/react": "*",
+		"@types/react-dom": "*",
+		"react": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+		"react-dom": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc"
+	},
+	"peerDependenciesMeta": {
+		"@types/react": {
+			"optional": true
+		},
+		"@types/react-dom": {
+			"optional": true
+		}
+	},
+	"homepage": "",
+	"repository": {
+		"type": "git",
+		"url": "git+"
+	},
+	"bugs": {
+		"url": "/issues"
+	},
+	"dependencies": {
+		"@ws-utils/context-memo": "*",
+		"@ws-utils/context-generator": "*"
+	},
+	"devDependencies": {
+		"@ws-utils/typescript-config": "*",
+		"tslib": "^2.8.1",
+		"typescript": "^5.6.3"
+	}
+}
