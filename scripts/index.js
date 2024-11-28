@@ -88,7 +88,7 @@ export const generate = new Command()
 
 		console.log(chalk.yellow('Creating package.json'));
 		await writeTemplate(
-			getTemplatePath('package.json'),
+			getTemplatePath(folder === 'react' ? 'package.json' : 'package-global.json'),
 			context,
 			path.join(componentPath, 'package.json')
 		);

@@ -1,0 +1,69 @@
+{
+	"name": "@ws-utils/merge-styles",
+	"version": "0.0.0",
+	"license": "MIT",
+	"source": "index.ts",
+	"main": "dist/cjs/index.js",
+	"module": "dist/esm/index.js",
+	"types": "dist/index.d.ts",
+	"type": "module",
+	"files": [
+		"dist"
+	],
+	"exports": {
+		".": {
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/esm/index.js"
+			},
+			"require": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/cjs/index.js"
+			}
+		}
+	},
+	"sideEffects": false,
+	"scripts": {
+		"build": "rollup -c",
+		"clean": "rimraf dist",
+		"typecheck": "tsc --noEmit --incremental false"
+	},
+	"peerDependencies": {
+		"@types/react": "*",
+		"@types/react-dom": "*",
+		"react": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+		"react-dom": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc"
+	},
+	"peerDependenciesMeta": {
+		"@types/react": {
+			"optional": true
+		},
+		"@types/react-dom": {
+			"optional": true
+		}
+	},
+	"homepage": "",
+	"repository": {
+		"type": "git",
+		"url": "git+"
+	},
+	"bugs": {
+		"url": "/issues"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.26.0",
+		"@babel/preset-env": "^7.26.0",
+		"@babel/preset-react": "^7.25.9",
+		"@rollup/plugin-babel": "^6.0.4",
+		"@rollup/plugin-commonjs": "^28.0.1",
+		"@rollup/plugin-node-resolve": "^15.3.0",
+		"@rollup/plugin-terser": "^0.4.4",
+		"@rollup/plugin-typescript": "^11.1.2",
+		"@ws-utils/typescript-config": "*",
+		"rollup": "^4.24.3",
+		"rollup-plugin-dts": "^6.1.1",
+		"rollup-plugin-peer-deps-external": "^2.2.4",
+		"tslib": "^2.8.1",
+		"typescript": "^5.6.3"
+	}
+}
