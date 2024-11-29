@@ -52,12 +52,12 @@ export const generate = new Command()
 					{
 						name: 'react',
 						value: 'react',
-						description: 'react folder',
+						description: 'react ecosystem packages',
 					},
 					{
-						name: 'global',
-						value: 'global',
-						description: 'global folder',
+						name: 'common',
+						value: 'common',
+						description: 'library-agnostic packages',
 					},
 				],
 			});
