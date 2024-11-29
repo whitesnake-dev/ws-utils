@@ -1,0 +1,7 @@
+{
+  "type": "commonjs",
+  "devDependencies": {
+    "@turbo/gen": "^2.3.3",
+    "plop": "^4.0.1"
+  }
+}

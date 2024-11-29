@@ -29,7 +29,7 @@
     "packages/typescript-config",
     "packages/react",
     "packages/react/*",
-    "packages/global",
-    "packages/global/*"
+    "packages/common",
+    "packages/common/*"
   ]
 }
