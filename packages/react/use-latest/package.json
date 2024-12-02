@@ -1,6 +1,6 @@
 {
 	"name": "@ws-utils/react-use-latest",
-	"version": "0.1.0",
+	"version": "0.0.1",
 	"license": "MIT",
 	"source": "index.ts",
 	"main": "dist/index.cjs",
@@ -49,7 +49,7 @@
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/whitesnake-dev/ws-utils.git",
-    "directory": "packages/react/use-latest"
+		"directory": "packages/react/use-latest"
 	},
 	"bugs": {
 		"url": "https://github.com/whitesnake-dev/ws-utils/issues"
