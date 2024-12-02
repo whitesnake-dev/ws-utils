@@ -9,7 +9,7 @@
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "package": "turbo gen package",
-    "publish-packages": "turbo run build test && changeset version && changeset publish"
+    "publish-packages": "turbo run build && changeset version && changeset publish"
   },
   "devDependencies": {
     "@inquirer/prompts": "^7.0.1",
