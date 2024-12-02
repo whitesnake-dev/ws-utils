@@ -1,0 +1,11 @@
+{
+	"extends": "@ws-utils/typescript-config/index.json",
+	"compilerOptions": {
+		"outDir": "dist",
+		"declarationDir": "dist",
+		"paths": {
+      		"@/*": ["./src/*"]
+		}
+	},
+	"exclude": ["node_modules"]
+}

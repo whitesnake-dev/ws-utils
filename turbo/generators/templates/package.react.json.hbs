@@ -2,31 +2,34 @@
 	"name": "@ws-utils/{{ packageType }}-{{ dashCase (lowerCase packageName) }}",
 	"version": "0.1.0",
 	"license": "MIT",
-	"source": "index.{{ language }}",
-	"main": "dist/cjs/index.js",
-	"module": "dist/esm/index.js",
+	"source": "index.ts",
+	"main": "dist/index.cjs",
+	"module": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"type": "module",
 	"files": [
-		"dist"
+		"dist",
+		"src"
 	],
 	"exports": {
 		".": {
 			"import": {
 				"types": "./dist/index.d.ts",
-				"default": "./dist/esm/index.js"
+				"default": "./dist/index.js"
 			},
 			"require": {
-				"types": "./dist/index.d.ts",
-				"default": "./dist/cjs/index.js"
+				"types": "./dist/index.d.cts",
+				"default": "./dist/index.cjs"
 			}
 		}
 	},
 	"sideEffects": false,
 	"scripts": {
-		"build": "rollup -c",
+		"test": "vitest run",
+		"build": "pnpm clean && pnpm typecheck && tsup",
 		"clean": "rimraf dist",
-		"typecheck": "tsc --noEmit --incremental false"
+		"typecheck": "tsc --noEmit --incremental false",
+		"publish": "pnpm publish --access public"
 	},
 	"peerDependencies": {
 		"@types/react": "*",
@@ -54,16 +57,15 @@
 	"devDependencies": {
 		"@babel/core": "^7.26.0",
 		"@babel/preset-env": "^7.26.0",
-		"@babel/preset-react": "^7.25.9",
-		"@rollup/plugin-babel": "^6.0.4",
-		"@rollup/plugin-commonjs": "^28.0.1",
-		"@rollup/plugin-node-resolve": "^15.3.0",
-		"@rollup/plugin-typescript": "^11.1.2",
-		"@ws-utils/typescript-config": "*",
-		"rollup": "^4.24.3",
-		"rollup-plugin-dts": "^6.1.1",
-		"rollup-plugin-peer-deps-external": "^2.2.4",
-		"tslib": "^2.8.1",
-		"typescript": "^5.6.3"
+		"@types/node": "^22.9.3",
+		"@vitest/coverage-v8": "2.1.6",
+		"@ws-utils/eslint-config": "workspace:*",
+		"@ws-utils/typescript-config": "workspace:*",
+		"eslint": "^9.15.0",
+		"rimraf": "^6.0.1",
+		"tsup": "^8.3.5",
+		"typescript": "~5.6.2",
+		"vitest": "^2.1.5",
+		"jsdoc": "^4.0.4"
 	}
 }

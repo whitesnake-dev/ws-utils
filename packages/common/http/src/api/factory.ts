@@ -119,10 +119,10 @@ export class RequestFactory {
    * All advanced configurations and processing logic can be performed here
    * @private
    */
-  readonly #fetcher: Fetcher;
+  private readonly _fetcher: Fetcher;
 
   constructor(fetcher: Fetcher) {
-    this.#fetcher = fetcher;
+    this._fetcher = fetcher;
   }
 
   /**
@@ -134,7 +134,7 @@ export class RequestFactory {
     url: TransformedRoute | string,
     options: RequestOptions = { method: 'GET' }
   ) {
-    return new Request<TResponse>(this.#fetcher, url, options);
+    return new Request<TResponse>(this._fetcher, url, options);
   }
 
   /**
@@ -225,18 +225,18 @@ export class Request<
   TQueryParams = undefined,
   TOmitted extends string | number | symbol = '',
 > {
-  readonly #fetcher: Fetcher;
-  readonly #options: RequestOptions;
-  readonly #url: TransformedRoute | string;
+  private readonly _fetcher: Fetcher;
+  private readonly _options: RequestOptions;
+  private readonly _url: TransformedRoute | string;
 
-  #withPathParams: boolean = false;
-  #defaultQueryParams?: Record<string, unknown>;
-  #hooks?: RequestHooks<TResponse, unknown>;
+  private _withPathParams: boolean = false;
+  private _defaultQueryParams?: Record<string, unknown>;
+  private _hooks?: RequestHooks<TResponse, unknown>;
 
   constructor(fetcher: Fetcher, url: TransformedRoute | string, options: RequestOptions) {
-    this.#fetcher = fetcher;
-    this.#options = options;
-    this.#url = url;
+    this._fetcher = fetcher;
+    this._options = options;
+    this._url = url;
   }
 
   /**
@@ -247,7 +247,7 @@ export class Request<
    * ```
    */
   pathParams<TNewPathParams extends Record<string, string | number>>() {
-    this.#withPathParams = true;
+    this._withPathParams = true;
     return this as unknown as Omit<
       Request<TResponse, TBody, TNewPathParams, TQueryParams, TOmitted | 'pathParams'>,
       TOmitted | 'pathParams'
@@ -257,7 +257,7 @@ export class Request<
   queryParams<TNewQueryParams extends Record<string, unknown>>(
     defaultQueryParams?: Partial<TNewQueryParams>
   ) {
-    this.#defaultQueryParams = defaultQueryParams;
+    this._defaultQueryParams = defaultQueryParams;
     return this as unknown as Omit<
       Request<TResponse, TBody, TPathParams, Partial<TNewQueryParams>, TOmitted | 'queryParams'>,
       TOmitted | 'queryParams'
@@ -272,7 +272,7 @@ export class Request<
   }
 
   hooks<TTransformed>(hooks: RequestHooks<TResponse, TTransformed>) {
-    this.#hooks = hooks;
+    this._hooks = hooks;
     return this as unknown as Omit<
       Request<TTransformed, TBody, TPathParams, TQueryParams, TOmitted | 'hooks'>,
       TOmitted | 'hooks'
@@ -285,26 +285,26 @@ export class Request<
     ): Promise<TResponse> => {
       const { body, queryParams, pathParams } = payload as RequestPayload<object, object, object>;
 
-      const mergedQueryParams = { ...this.#defaultQueryParams, ...queryParams };
+      const mergedQueryParams = { ...this._defaultQueryParams, ...queryParams };
 
-      let url: string = this.#url.toString();
-      if (this.#withPathParams) {
+      let url: string = this._url.toString();
+      if (this._withPathParams) {
         url = generatePath(url, pathParams);
       }
 
       let fetcherPayload: FetchPayloadType = {
-        method: this.#options.method,
+        method: this._options.method,
         queryParams: mergedQueryParams,
         body: body,
       };
-      if (this.#hooks?.beforeRequest !== undefined) {
-        fetcherPayload = await this.#hooks.beforeRequest(fetcherPayload);
+      if (this._hooks?.beforeRequest !== undefined) {
+        fetcherPayload = await this._hooks.beforeRequest(fetcherPayload);
       }
 
-      const result = await this.#fetcher.fetch<TResponse>(url, fetcherPayload);
+      const result = await this._fetcher.fetch<TResponse>(url, fetcherPayload);
 
-      if (this.#hooks?.onResponse !== undefined) {
-        return (await this.#hooks.onResponse(result)) as TResponse;
+      if (this._hooks?.onResponse !== undefined) {
+        return (await this._hooks.onResponse(result)) as TResponse;
       }
       return result as TResponse;
     };

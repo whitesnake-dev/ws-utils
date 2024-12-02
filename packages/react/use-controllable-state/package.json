@@ -29,7 +29,7 @@
 		"typecheck": "tsc --noEmit --incremental false"
 	},
 	"peerDependencies": {
-		"@ws-utils/use-callback-ref": "*",
+		"@ws-utils/use-callback-ref": "workspace:*",
 		"@types/react": "*",
 		"@types/react-dom": "*",
 		"react": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
@@ -59,7 +59,7 @@
 		"@rollup/plugin-commonjs": "^28.0.1",
 		"@rollup/plugin-node-resolve": "^15.3.0",
 		"@rollup/plugin-typescript": "^11.1.2",
-		"@ws-utils/typescript-config": "*",
+		"@ws-utils/typescript-config": "workspace:*",
 		"rollup": "^4.24.3",
 		"rollup-plugin-dts": "^6.1.1",
 		"rollup-plugin-peer-deps-external": "^2.2.4",

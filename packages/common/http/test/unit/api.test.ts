@@ -1,7 +1,7 @@
 import { RequestFactory, routes, routesWithMetadata } from '@/api';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { Fetcher, HTTPMethod } from '@/http';
-import { createFetchResponse, fetchMock } from '../util.ts';
+import { createFetchResponse, fetchMock } from '../util';
 
 const routeHierarchy = {
   V1: {

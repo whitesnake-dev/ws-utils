@@ -3,7 +3,6 @@ import type { Actions, PlopGeneratorConfig } from "node-plop";
 type PackageData = {
     packageType: "common" | "react";
     packageName: string;
-    extension: "ts" | "tsx"
 }
 
 export default {
@@ -44,11 +43,6 @@ export default {
           return true;
         },
       },
-      {
-        type: "list",
-        name: "extension",
-        choices: ["ts", "tsx"]
-      }
     ],
     actions: function (data: PackageData) {
       const dest = "{{ turbo.paths.root }}/packages/{{ packageType }}/{{ dashCase (lowerCase packageName) }}"
@@ -57,7 +51,13 @@ export default {
           type: "addMany",
           skipIfExists: true,
           destination: dest,
-          templateFiles: ["templates/tsconfig.json.hbs", "templates/rollup.config.js.hbs"],
+          templateFiles: [
+            "templates/tsconfig.json.hbs",
+            "templates/tsup.config.ts.hbs",
+            "templates/README.md.hbs",
+            "templates/vitest.config.ts.hbs",
+            "templates/eslint.config.js.hbs",
+          ],
         },
       ];
       actions.push({
@@ -69,8 +69,8 @@ export default {
       actions.push({
         type: "add",
         skipIfExists: true,
-        path: `${dest}/index.${data.extension}`,
-        templateFile: `templates/index.ts.hbs`
+        path: `${dest}/src/index.ts`,
+        templateFile: "templates/index.ts.hbs"
       })
       return actions
     }

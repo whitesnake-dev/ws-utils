@@ -1,6 +1,6 @@
 # Whitesnake Utils
 
-Bunch of widely used random utils
+Bunch of random JS utils widely used in Whitesnake
 
 
 ## What's inside?
@@ -10,55 +10,25 @@ This repo includes the following packages:
 ### Apps and Packages
 
 - `common/*`: framework-agnostic utils
-- `react/*`: `react` ecosystem utils and common hooks
-- `typescript-config`: `tsconfig.json`s used throughout the monorepo
+- `react/*`: React ecosystem utils and common hooks
+- `typescript-config`: `tsconfig.json` files used throughout the repo
+- `eslint-config`: `eslint.config.js` files used throughout the repo
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
-### Build
+### Development
 
-To build all apps and packages, run the following command:
+1. To start development in that repo just clone and install dependencies via pnpm
 
-```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
+```shell
+cd ws-utils
+pnpm i
 ```
 
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
+2. To bootstrap new utility, run turbo gen:
+```shell
+turbo gen package  # starts package generation wizard
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+3. Update `tsup.config.ts` and `package.json` and other files accordingly for your needs if needed
+4. bim bim bam bam
+5. Provide meaningful `README.md` for details about your package.

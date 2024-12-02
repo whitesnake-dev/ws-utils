@@ -1,0 +1,9 @@
+packages: [
+    "packages/typescript-config",
+    "packages/eslint-config",
+    "packages/react",
+    "packages/react/*",
+    "packages/common",
+    "packages/common/*",
+    "turbo/generators"
+]
