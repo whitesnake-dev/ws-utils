@@ -1,5 +1,6 @@
 {
   "type": "commonjs",
+  "name": "@ws-utils/turbo-generators",
   "private": true,
   "devDependencies": {
     "@turbo/gen": "^2.3.3",

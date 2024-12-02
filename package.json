@@ -8,20 +8,22 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "component": "node scripts/index.js generate"
+    "package": "turbo gen package",
+    "publish-packages": "turbo run build test && changeset version && changeset publish"
   },
   "devDependencies": {
-    "prettier": "^3.2.5",
-    "turbo": "^2.3.2",
-    "typescript": "5.5.4",
+    "@inquirer/prompts": "^7.0.1",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "chalk": "^5.3.0",
     "commander": "^12.1.0",
     "fs-extra": "^11.2.0",
     "handlebars": "^4.7.8",
-    "@inquirer/prompts": "^7.0.1",
-    "rimraf": "^6.0.1"
+    "prettier": "^3.2.5",
+    "rimraf": "^6.0.1",
+    "turbo": "^2.3.2",
+    "typescript": "5.5.4",
+    "@changesets/cli": "^2.27.10"
   },
   "engines": {
     "node": ">=18"
