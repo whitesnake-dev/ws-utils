@@ -1,7 +1,9 @@
 {
   "type": "commonjs",
+  "private": true,
   "devDependencies": {
     "@turbo/gen": "^2.3.3",
-    "plop": "^4.0.1"
+    "@ws-utils/eslint-config": "workspace:*",
+    "@ws-utils/typescript-config": "workspace:*"
   }
 }

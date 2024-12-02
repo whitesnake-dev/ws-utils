@@ -1,9 +1,11 @@
 {
 	"extends": "@ws-utils/typescript-config/index.json",
 	"compilerOptions": {
-		"jsx": "react-jsx",
-		"outDir": "types",
-		"declarationDir": "types"
+		"outDir": "dist",
+		"declarationDir": "dist",
+		"paths": {
+      		"@/*": ["./src/*"]
+		}
 	},
 	"exclude": ["node_modules"]
 }

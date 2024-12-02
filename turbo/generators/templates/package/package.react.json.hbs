@@ -31,6 +31,20 @@
 		"typecheck": "tsc --noEmit --incremental false",
 		"publish": "pnpm publish --access public"
 	},
+	"peerDependencies": {
+		"@types/react": "*",
+		"@types/react-dom": "*",
+		"react": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+		"react-dom": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc"
+	},
+	"peerDependenciesMeta": {
+		"@types/react": {
+			"optional": true
+		},
+		"@types/react-dom": {
+			"optional": true
+		}
+	},
 	"homepage": "https://github.com/whitesnake-dev/ws-utils",
 	"repository": {
 		"type": "git",
@@ -44,14 +58,14 @@
 		"@babel/core": "^7.26.0",
 		"@babel/preset-env": "^7.26.0",
 		"@types/node": "^22.9.3",
-		"@vitest/coverage-v8": "2.1.6",
+		"@vitest/coverage-v8": "^2.1.8",
 		"@ws-utils/eslint-config": "workspace:*",
 		"@ws-utils/typescript-config": "workspace:*",
 		"eslint": "^9.15.0",
 		"rimraf": "^6.0.1",
 		"tsup": "^8.3.5",
 		"typescript": "~5.6.2",
-		"vitest": "^2.1.5",
+		"vitest": "^2.1.8",
 		"jsdoc": "^4.0.4"
 	}
 }

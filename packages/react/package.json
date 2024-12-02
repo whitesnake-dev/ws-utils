@@ -45,14 +45,5 @@
 	},
 	"bugs": {
 		"url": "/issues"
-	},
-	"dependencies": {
-		"@ws-utils/context-memo": "workspace:*",
-		"@ws-utils/context-generator": "workspace:*"
-	},
-	"devDependencies": {
-		"@ws-utils/typescript-config": "workspace:*",
-		"tslib": "^2.8.1",
-		"typescript": "^5.6.3"
 	}
 }

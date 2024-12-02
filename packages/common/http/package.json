@@ -41,17 +41,17 @@
 		"url": "https://github.com/whitesnake-dev/ws-utils/issues"
 	},
 	"devDependencies": {
+		"@ws-utils/eslint-config": "workspace:*",
+		"@ws-utils/typescript-config": "workspace:*",
 		"@babel/core": "^7.26.0",
 		"@babel/preset-env": "^7.26.0",
 		"@types/node": "^22.9.3",
-		"@vitest/coverage-v8": "2.1.6",
-		"@ws-utils/eslint-config": "workspace:*",
-		"@ws-utils/typescript-config": "workspace:*",
+		"@vitest/coverage-v8": "^2.1.8",
 		"eslint": "^9.15.0",
 		"rimraf": "^6.0.1",
 		"tsup": "^8.3.5",
 		"typescript": "~5.6.2",
-		"vitest": "^2.1.5",
+		"vitest": "^2.1.8",
 		"jsdoc": "^4.0.4"
 	}
 }
