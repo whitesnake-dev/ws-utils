@@ -789,6 +789,58 @@ importers:
         specifier: ^2.1.8
         version: 2.1.8(@types/node@22.10.1)
 
+  packages/react/use-key-selection:
+    dependencies:
+      '@types/react':
+        specifier: '*'
+        version: 18.3.12
+      '@types/react-dom':
+        specifier: '*'
+        version: 18.3.1
+      react:
+        specifier: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+        version: 18.3.1
+      react-dom:
+        specifier: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@babel/core':
+        specifier: ^7.26.0
+        version: 7.26.0
+      '@babel/preset-env':
+        specifier: ^7.26.0
+        version: 7.26.0(@babel/core@7.26.0)
+      '@types/node':
+        specifier: ^22.9.3
+        version: 22.10.1
+      '@vitest/coverage-v8':
+        specifier: ^2.1.8
+        version: 2.1.8(vitest@2.1.8(@types/node@22.10.1))
+      '@ws-utils/eslint-config':
+        specifier: workspace:*
+        version: link:../../eslint-config
+      '@ws-utils/typescript-config':
+        specifier: workspace:*
+        version: link:../../typescript-config
+      eslint:
+        specifier: ^9.15.0
+        version: 9.16.0
+      jsdoc:
+        specifier: ^4.0.4
+        version: 4.0.4
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
+      tsup:
+        specifier: ^8.3.5
+        version: 8.3.5(postcss@8.4.49)(typescript@5.6.3)
+      typescript:
+        specifier: ~5.6.2
+        version: 5.6.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.8(@types/node@22.10.1)
+
   packages/react/use-latest:
     dependencies:
       '@types/react':
