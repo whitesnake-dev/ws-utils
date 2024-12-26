@@ -1,6 +1,6 @@
 {
 	"name": "@ws-utils/react-use-image-loading-status",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"license": "MIT",
 	"source": "index.ts",
 	"main": "dist/index.cjs",
