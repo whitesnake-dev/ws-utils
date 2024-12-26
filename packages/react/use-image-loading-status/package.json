@@ -1,0 +1,71 @@
+{
+	"name": "@ws-utils/react-use-image-loading-status",
+	"version": "0.0.0",
+	"license": "MIT",
+	"source": "index.ts",
+	"main": "dist/index.cjs",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"type": "module",
+	"files": [
+		"dist",
+		"src"
+	],
+	"exports": {
+		".": {
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			},
+			"require": {
+				"types": "./dist/index.d.cts",
+				"default": "./dist/index.cjs"
+			}
+		}
+	},
+	"sideEffects": false,
+	"scripts": {
+		"test": "vitest run",
+		"build": "pnpm clean && pnpm typecheck && tsup",
+		"clean": "rimraf dist",
+		"typecheck": "tsc --noEmit --incremental false",
+		"publish": "pnpm publish --access public"
+	},
+	"peerDependencies": {
+		"@types/react": "*",
+		"@types/react-dom": "*",
+		"react": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+		"react-dom": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc"
+	},
+	"peerDependenciesMeta": {
+		"@types/react": {
+			"optional": true
+		},
+		"@types/react-dom": {
+			"optional": true
+		}
+	},
+	"homepage": "https://github.com/whitesnake-dev/ws-utils",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/whitesnake-dev/ws-utils.git",
+    "directory": "packages/react/use-image-loading-status"
+	},
+	"bugs": {
+		"url": "https://github.com/whitesnake-dev/ws-utils/issues"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.26.0",
+		"@babel/preset-env": "^7.26.0",
+		"@types/node": "^22.9.3",
+		"@vitest/coverage-v8": "^2.1.8",
+		"@ws-utils/eslint-config": "workspace:*",
+		"@ws-utils/typescript-config": "workspace:*",
+		"eslint": "^9.15.0",
+		"rimraf": "^6.0.1",
+		"tsup": "^8.3.5",
+		"typescript": "~5.6.2",
+		"vitest": "^2.1.8",
+		"jsdoc": "^4.0.4"
+	}
+}
