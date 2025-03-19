@@ -1,6 +1,6 @@
 {
   "name": "@ws-utils/react-use-outside-click",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "source": "index.ts",
   "main": "dist/index.cjs",

@@ -11,6 +11,7 @@ import { useEffect, useRef } from 'react';
  * const MyComponent = () => {
  *   const handleOutsideClick = (event) => {
  *     // Handle click outside with access to the event
+ *     console.log(event.target);
  *   };
  *   const ref = useOutsideClick<HTMLDivElement>(handleOutsideClick);
  *   return <div ref={ref}>Content</div>;
@@ -18,29 +19,24 @@ import { useEffect, useRef } from 'react';
  * ```
  */
 export const useOutsideClick = <T extends HTMLElement>(
-	callback: (event: DocumentEventMap[keyof DocumentEventMap]) => void,
-	eventType: keyof DocumentEventMap = 'mousedown'
+  callback: (event: Event) => void,
+  eventType: keyof DocumentEventMap = 'mousedown'
 ) => {
-	const ref = useRef<T>(null);
+  const ref = useRef<T>(null);
 
-	useEffect(() => {
-		const handleClickOutside = (event: DocumentEventMap[typeof eventType]) => {
-			if (
-				event instanceof MouseEvent &&
-				ref.current &&
-				!ref.current.contains(event.target as Node)
-			) {
-				callback(event);
-			}
-		};
+  useEffect(() => {
+    const handleClickOutside = (event: Event) => {
+      if (ref.current && event.target instanceof Node && !ref.current.contains(event.target)) {
+        callback(event);
+      }
+    };
 
-		document.addEventListener(eventType, handleClickOutside);
+    document.addEventListener(eventType, handleClickOutside);
 
-		return () => {
-			document.removeEventListener(eventType, handleClickOutside);
-		};
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [callback]);
+    return () => {
+      document.removeEventListener(eventType, handleClickOutside);
+    };
+  }, [callback, eventType]);
 
-	return ref;
+  return ref;
 };
